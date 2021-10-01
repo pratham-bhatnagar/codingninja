@@ -62,7 +62,7 @@ while True:   #main loop for the game
     print(game(val,user,comp))
     print("#######################################################")
     print("\n \n") 
-    time.sleep(2)
+    time.sleep(0.5)
 
 
 
