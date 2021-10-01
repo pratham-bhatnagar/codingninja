@@ -8,37 +8,44 @@ import time
 counter_user = 0
 counter_pc = 0
 
-def game(val,user,comp,counter_user,counter_pc):#algorithm for deciding a win or a loose
+def game(val,user,comp,counter_user,counter_pc):   #algorithm for deciding a win or a loose
     
-    if user==n:  #algorithm for deciding a win or a loose
-        return 'DRAW!\n YOU:',val,'COMP:',comp
+    if user==n:                                   
+        print('DRAW!\nYOU:',val,'COMP:',comp)
     else:
         if user==1:
             if comp==2:
+                print ('YOU LOSE \nYOU:',val,'and COMP:',comp)
                 counter_pc+=1
-                return ('YOU LOSE \n YOU:',val,'and COMP:',comp)
+                
             else:
+                print ('YOU W0N \nYOU:',val, 'and COMP:',comp)
                 counter_user+=1
-                return ('YOU W0N \n YOU:',val, 'and COMP:',comp)
+                 
+
         elif user==2:
             if comp==1:
+                print ('YOU WON \nYOU:',val,' and COMP:',comp)
                 counter_user+=1
-                return ('YOU WON \n YOU:',val,' and COMP:',comp)
+                 
             else:
+                print ('YOU LOSE \nYOU:',val,' and COMP:',comp)
                 counter_pc+=1
-                return ('YOU LOSE \n YOU:',val,' and COMP:',comp)
+               
         elif user==3:
             if comp==1:
+                print ('YOU LOSE  \nYOU:',val,' and COMP:',comp)
                 counter_pc+=1
-                return ('YOU LOSE  \n YOU:',val,' and COMP:',comp)
+                
             else:
+                print ('YOU WON  \nYOU:',val,' and COMP:',comp)
                 counter_user+=1
-                return ('YOU WON  \n YOU:',val,' and COMP:',comp)
+                
         elif user==4:
             quit()
         else:
-            return val
-
+            print(val)
+    
 
 while True:   #main loop for the game
 
@@ -68,10 +75,11 @@ while True:   #main loop for the game
     else:
         val="INVALID OPTION"
     
-    print(game(val,user,comp))
+    game(val,user,comp,counter_user,counter_pc)
     print("#######################################################")
     print("SCORE:  YOU:",counter_user,"\t COMPUTER:",counter_pc)
     print("#######################################################")
+    
     print("\n \n") 
     time.sleep(0.5)
 
