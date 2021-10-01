@@ -11,9 +11,7 @@ def game(val,user,comp): #algorithm for deciding a win or a loose
     else:
         if user==1:
             if comp==2:
-                return ('YOU LOSE' + '\n'
-                        'YOU:',val, 
-                        'and COMP:',comp)
+                return ('YOU LOSE \n YOU:',val, 'and COMP:',comp)
             else:
                 return ('YOU W0N \n YOU:',val, 'and COMP:',comp)
         elif user==2:
@@ -58,8 +56,6 @@ while True:   #main loop for the game
         val="INVALID OPTION"
     
     print(game(val,user,comp))
-
-    
     
     print("#######################################################")
     print("\n \n") 
