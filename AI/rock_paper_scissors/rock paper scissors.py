@@ -50,9 +50,10 @@ def game(user,comp):                          # Basic algorithm for rock paper a
                 return winner
                 
                 
-        elif user==4:
+        elif user=="quit":
             print("HAVE A NICE A AHEAD.")
             quit()
+            
         else:
             print(val)
 
@@ -86,6 +87,8 @@ while True:                                     # main loop for the game
             user="paper"
         elif val==3:
             user="scissors"
+        elif val==4:
+            user=="quit"
         else:
             user="INVALID OPTION"
     except ValueError:                         # In case user enters any non interger value.                  
