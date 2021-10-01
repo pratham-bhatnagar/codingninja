@@ -6,3 +6,6 @@
 
 (01/10/2021, 11:10) Learned about time.sleep, I used it with a loop to make it look like
                     auto typing 
+
+(01/10/2021, 17:16) Added a score counter and tried to make the code cleaner. Hence added a function
+                    and some comments
