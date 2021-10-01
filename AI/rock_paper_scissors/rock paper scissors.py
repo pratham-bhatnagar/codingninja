@@ -5,26 +5,35 @@ import time
 #display.title("BHANU")
 #Label (display, text="STONE PAPER SISSOR", bg="black", fg="green" , font="none 15 bold") .grid(row=1, column=0, sticky=W)
 
-def game(val,user,comp): #algorithm for deciding a win or a loose
+counter_user = 0
+counter_pc = 0
 
+def game(val,user,comp,counter_user,counter_pc):#algorithm for deciding a win or a loose
+    
     if user==n:  #algorithm for deciding a win or a loose
         return 'DRAW!\n YOU:',val,'COMP:',comp
     else:
         if user==1:
             if comp==2:
+                counter_pc+=1
                 return ('YOU LOSE \n YOU:',val,'and COMP:',comp)
             else:
+                counter_user+=1
                 return ('YOU W0N \n YOU:',val, 'and COMP:',comp)
         elif user==2:
             if comp==1:
-                return 'YOU WON \n YOU:',val,' and COMP:',comp
+                counter_user+=1
+                return ('YOU WON \n YOU:',val,' and COMP:',comp)
             else:
-                return 'YOU LOSE \n YOU:',val,' and COMP:',comp
+                counter_pc+=1
+                return ('YOU LOSE \n YOU:',val,' and COMP:',comp)
         elif user==3:
             if comp==1:
-                return 'YOU LOSE  \n YOU:',val,' and COMP:',comp
+                counter_pc+=1
+                return ('YOU LOSE  \n YOU:',val,' and COMP:',comp)
             else:
-                return 'YOU WON  \n YOU:',val,' and COMP:',comp
+                counter_user+=1
+                return ('YOU WON  \n YOU:',val,' and COMP:',comp)
         elif user==4:
             quit()
         else:
@@ -43,11 +52,11 @@ while True:   #main loop for the game
     elif n==2:
         comp="paper"
     else:
-        comp="sissor"
+        comp="scissors"
 
     print("1~rock")
     print("2~paper")
-    print("3~sissor")
+    print("3~scissors")
     print("4~quit")
     user=int(input("Enter your Value: "))  #asking user for his choice
     if user==1:
@@ -55,11 +64,13 @@ while True:   #main loop for the game
     elif user==2:
         val="paper"
     elif user==3:
-        val="sissor"
+        val="scissors"
     else:
         val="INVALID OPTION"
     
     print(game(val,user,comp))
+    print("#######################################################")
+    print("SCORE:  YOU:",counter_user,"\t COMPUTER:",counter_pc)
     print("#######################################################")
     print("\n \n") 
     time.sleep(0.5)
