@@ -1,4 +1,5 @@
 import random
+import time
 #from tkinter import *
 #display = Tk()
 #display.title("BHANU")
@@ -11,9 +12,7 @@ def game(val,user,comp): #algorithm for deciding a win or a loose
     else:
         if user==1:
             if comp==2:
-                return ('YOU LOSE' + '\n'
-                        'YOU:',val, 
-                        'and COMP:',comp)
+                return ('YOU LOSE \n YOU:',val,'and COMP:',comp)
             else:
                 return ('YOU W0N \n YOU:',val, 'and COMP:',comp)
         elif user==2:
@@ -34,7 +33,10 @@ def game(val,user,comp): #algorithm for deciding a win or a loose
 
 while True:   #main loop for the game
 
-    print("ROCK\t PAPAR\t SISSOR") 
+    for i in "ROCK PAPER SCISSORS \n":
+        print(i, end="")
+        time.sleep(0.1) #making it look like typing
+
     n=random.randint(1,3) #randomlly choosing rock, paper or sissor
     if n==1:
         comp="rock"
@@ -58,11 +60,9 @@ while True:   #main loop for the game
         val="INVALID OPTION"
     
     print(game(val,user,comp))
-
-    
-    
     print("#######################################################")
     print("\n \n") 
+    time.sleep(2)
 
 
 
