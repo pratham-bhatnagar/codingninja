@@ -1,67 +1,79 @@
 import random
 import time
 
+class bcolors:                          #added this class to color some of the next!
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
 total_games_played = 0
 winner = 0                                    # variables for score counter feature
 counter_user = 0
 counter_pc = 0
 
+
 def game(user,comp):                          # Basic algorithm for rock paper and scissors
     
     if user==comp:                                   
-        print('\t\tDRAW!\n\t\tYOU:',val,'COMP:',comp)
+        print('\t\tDRAW!\n\t\tYOU:',user,'COMP:',comp)
         winner=2
         return winner
     else:
         if user=='rock':
             if comp=='paper':
-                print ('\t\tYOU LOSE \nYOU:',val,'and COMP:',comp)
+                print ('\t\tYOU LOSE \nYOU:',user,'and COMP:',comp)
                 winner=0
                 return winner
                 
             else:
-                print ('\t\tYOU W0N \n\t\tYOU:',val, 'and COMP:',comp)
+                print ('\t\tYOU W0N \n\t\tYOU:',user, 'and COMP:',comp)
                 winner=1
                 return winner
                  
 
         elif user=='paper':
             if comp=='rock':
-                print ('\t\tYOU WON \n\t\tYOU:',val,' and COMP:',comp)
+                print ('\t\tYOU WON \n\t\tYOU:',user,' and COMP:',comp)
                 winner=1
                 return winner
                  
             else:
-                print ('\t\tYOU LOSE \n\t\tYOU:',val,' and COMP:',comp)
+                print ('\t\tYOU LOSE \n\t\tYOU:',user,' and COMP:',comp)
                 winner=0
                 return winner
                 
                
         elif user=='scissors':
             if comp=='rock':
-                print ('\t\tYOU LOSE  \n\t\tYOU:',val,' and COMP:',comp)
+                print ('\t\tYOU LOSE  \n\t\tYOU:',user,' and COMP:',comp)
                 winner=0
                 return winner
                 
                 
             else:
-                print ('\t\tYOU WON  \n\t\tYOU:',val,' and COMP:',comp)
+                print ('\t\tYOU WON  \n\t\tYOU:',user,' and COMP:',comp)
                 winner=1
                 return winner
                 
                 
         elif user=="quit":
-            print("HAVE A NICE A AHEAD.")
+            print("HAVE A NICE A AHEAD.\n\n")
             quit()
             
         else:
-            print(val)
+            print(user)
 
 
     
 while True:                                     # main loop for the game
 
-    for i in "ROCK PAPER SCISSORS \n":
+    for i in f"{bcolors.WARNING}ROCK  PAPER  SCISSORS  \n{bcolors.ENDC}":
         print(i, end="")
         time.sleep(0.05)                        # making it look like typing
 
@@ -88,12 +100,13 @@ while True:                                     # main loop for the game
         elif val==3:
             user="scissors"
         elif val==4:
-            user=="quit"
+            user="quit"
         else:
-            user="INVALID OPTION"
+            user="INVALID OPTION\n\n"
     except ValueError:                         # In case user enters any non interger value.                  
         print("\n\nPlease enter a valid option.\n\n")
-        quit()
+        time.sleep(0.5)
+        continue
     
     winner = game(user,comp)                   # game function reterns '0' for a lose and '1' for a win
 
@@ -101,34 +114,34 @@ while True:                                     # main loop for the game
 
         counter_user+=1                        # adds 1 in user total score
         total_games_played+=1                  # adds 1 in total games played
-        print("#######################################################")
+        print(f"{bcolors.OKCYAN}#######################################################{bcolors.ENDC}")
         print("SCORE:  YOU:",counter_user,"\t COMPUTER:",counter_pc)
         print("\t\tTotal Games played:",total_games_played,"\t\t")
-        print("#######################################################")
+        print(f"{bcolors.OKCYAN}#######################################################{bcolors.ENDC}")
         print("\n \n") 
-        time.sleep(0.5)
+        time.sleep(0.2)
 
     elif winner==0:
 
         total_games_played+=1
         counter_pc+=1                          # adds 1 in computer total score
-        print("#######################################################")
+        print(f"{bcolors.OKCYAN}#######################################################{bcolors.ENDC}")
         print("SCORE:  YOU:",counter_user,"\t COMPUTER:",counter_pc)
         print("\t\tTotal Games played:",total_games_played,"\t\t")
-        print("#######################################################")
+        print(f"{bcolors.OKCYAN}#######################################################{bcolors.ENDC}")
         print("\n \n") 
-        time.sleep(0.5)
+        time.sleep(0.2)
 
-    else:
+    elif winner==2:
 
         total_games_played+=1
-        print("#######################################################")
+        print(f"{bcolors.OKCYAN}#######################################################{bcolors.ENDC}")
         print("\t\t ITS A DRAW!\t\t")
         print("SCORE:  YOU:",counter_user,"\t COMPUTER:",counter_pc)
         print("\t\tTotal Games played:",total_games_played,"\t\t")
-        print("#######################################################")
+        print(f"{bcolors.OKCYAN}#######################################################{bcolors.ENDC}")
         print("\n \n") 
-        time.sleep(0.5)
+        time.sleep(0.2)
     
     
     
